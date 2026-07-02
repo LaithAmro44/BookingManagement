@@ -1,0 +1,144 @@
+.alert {
+  margin-bottom: 22px;
+  padding: 13px 15px;
+  border-radius: 9px;
+  font-size: .9rem;
+}
+
+.error {
+  border: 1px solid #f3c7c8;
+  background: #fff1f1;
+  color: #a03c42;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.summary-card,
+.guide-card {
+  border: 1px solid #e8edf5;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 22px rgba(37, 61, 107, .04);
+}
+
+.summary-card {
+  display: flex;
+  gap: 14px;
+  min-height: 138px;
+  padding: 22px;
+}
+
+.summary-icon {
+  display: grid;
+  flex: 0 0 46px;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.resource { background: #edf2ff; color: #426ee8; }
+.users { background: #edf9f4; color: #189965; }
+.booking { background: #fff5e8; color: #d98318; }
+
+.summary-card p,
+.summary-card strong,
+.summary-card small {
+  display: block;
+  margin: 0;
+}
+
+.summary-card p {
+  color: #68758b;
+  font-size: .85rem;
+}
+
+.summary-card strong {
+  margin: 5px 0;
+  color: #1b2944;
+  font-size: 1.8rem;
+}
+
+.summary-card small {
+  color: #8a96ab;
+  font-size: .75rem;
+}
+
+.action-card strong {
+  font-size: 1.22rem;
+}
+
+.action-card a {
+  color: #315feb;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.guide-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr);
+  gap: 36px;
+  margin-top: 22px;
+  padding: 30px;
+}
+
+.section-label {
+  margin: 0 0 8px;
+  color: #5476de;
+  font-size: .69rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+h3 {
+  margin: 0;
+  color: #1a2945;
+  font-size: 1.22rem;
+}
+
+.guide-content > p:last-child {
+  max-width: 620px;
+  margin: 9px 0 0;
+  color: #68758b;
+  line-height: 1.6;
+}
+
+ol {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4c5e7c;
+  font-size: .88rem;
+}
+
+li span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #edf2ff;
+  color: #416de6;
+  font-size: .75rem;
+  font-weight: 800;
+}
+
+@media (max-width: 960px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .guide-card { grid-template-columns: 1fr; }
+}

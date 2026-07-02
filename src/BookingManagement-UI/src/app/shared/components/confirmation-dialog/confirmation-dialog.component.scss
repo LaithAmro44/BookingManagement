@@ -1,0 +1,121 @@
+:host {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.confirmation-backdrop {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.55);
+}
+
+.confirmation-dialog {
+    width: min(100%, 480px);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+}
+
+.confirmation-dialog__header,
+.confirmation-dialog__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.confirmation-dialog__header {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.confirmation-dialog__body {
+    padding: 1.5rem;
+}
+
+.confirmation-dialog__eyebrow {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #0f172a;
+}
+
+.close-button {
+    border: 0;
+    background: transparent;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.confirmation-dialog__actions {
+    justify-content: flex-end;
+    border-top: 1px solid #e2e8f0;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 120px;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #ffffff;
+    background: #2563eb;
+}
+
+.button:disabled,
+.close-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.button--secondary {
+    color: #334155;
+    background: #e2e8f0;
+}
+
+.button--danger {
+    background: #dc2626;
+}
+
+.error-message {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+.spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

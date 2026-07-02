@@ -1,0 +1,38 @@
+<div class="confirmation-backdrop" (click)="onBackdropClicked()">
+    <section class="confirmation-dialog" role="alertdialog" aria-modal="true"
+        aria-labelledby="confirmation-dialog-title" (click)="$event.stopPropagation()">
+
+        <div class="confirmation-dialog__header">
+            <div>
+                <span class="confirmation-dialog__eyebrow">Booking management</span>
+                <h2 id="confirmation-dialog-title">{{ title }}</h2>
+            </div>
+
+            <button type="button" class="close-button" [disabled]="loading" (click)="cancel.emit()" aria-label="Close">
+                ×
+            </button>
+        </div>
+
+        <div class="confirmation-dialog__body">
+            <ng-content></ng-content>
+
+            <div *ngIf="errorMessage" class="error-message" role="alert">
+                {{ errorMessage }}
+            </div>
+        </div>
+
+        <div class="confirmation-dialog__actions">
+            <button type="button" class="button button--secondary" [disabled]="loading" (click)="cancel.emit()">
+                {{ cancelText }}
+            </button>
+
+            <button type="button" class="button" [class.button--danger]="destructive" [disabled]="loading"
+                (click)="confirm.emit()">
+
+                <span *ngIf="loading" class="spinner"></span>
+
+                {{ loading ? 'Cancelling...' : confirmText }}
+            </button>
+        </div>
+    </section>
+</div>

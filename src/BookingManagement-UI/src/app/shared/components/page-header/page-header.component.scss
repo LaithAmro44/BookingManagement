@@ -1,0 +1,47 @@
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+h2,
+p {
+  margin: 0;
+}
+
+h2 {
+  color: #17243d;
+  font-size: 1.65rem;
+  line-height: 1.2;
+}
+
+p {
+  max-width: 700px;
+  margin-top: 7px;
+  color: #6f7d96;
+  line-height: 1.55;
+}
+
+.header-action {
+  flex: 0 0 auto;
+  padding: 11px 16px;
+  border-radius: 8px;
+  background: #315feb;
+  color: #fff;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .page-header {
+    display: block;
+  }
+
+  .header-action {
+    display: inline-block;
+    margin-top: 15px;
+  }
+}

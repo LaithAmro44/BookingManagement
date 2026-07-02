@@ -1,0 +1,80 @@
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+th,
+td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #edf0f5;
+  text-align: left;
+}
+
+th {
+  color: #758198;
+  background: #fbfcfe;
+  font-size: .73rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+td {
+  color: #344864;
+  font-size: .84rem;
+}
+
+td strong,
+td small {
+  display: block;
+}
+
+td strong {
+  color: #293b58;
+  font-size: .84rem;
+  font-weight: 700;
+}
+
+td small {
+  margin-top: 4px;
+  color: #8792a5;
+  font-size: .72rem;
+}
+
+.action-column {
+  width: 118px;
+}
+
+button {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid #efc6c8;
+  border-radius: 7px;
+  background: #fff7f7;
+  color: #b3464c;
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: .62;
+}
+
+.cancelled-text {
+  color: #93a0b3;
+  font-size: .78rem;
+}
+
+.loading-cell {
+  padding: 42px;
+  color: #738198;
+  text-align: center;
+}

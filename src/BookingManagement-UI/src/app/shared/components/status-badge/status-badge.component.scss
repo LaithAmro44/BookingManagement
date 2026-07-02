@@ -1,0 +1,33 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.active {
+  background: #e6f8ef;
+  color: #177247;
+}
+
+.active .status-dot {
+  background: #27b979;
+}
+
+.cancelled {
+  background: #f2f4f7;
+  color: #69758b;
+}
+
+.cancelled .status-dot {
+  background: #9aa5b5;
+}

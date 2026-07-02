@@ -1,0 +1,54 @@
+@BookingManagement_Api_HostAddress = https://localhost:7022
+@resourceId = meeting-room-a
+@userId = user-001
+
+### 1) Get seeded resources
+GET {{BookingManagement_Api_HostAddress}}/api/resources
+Accept: application/json
+
+###
+
+### 2) Get seeded users
+GET {{BookingManagement_Api_HostAddress}}/api/users
+Accept: application/json
+
+###
+
+### 3) Create a booking
+POST {{BookingManagement_Api_HostAddress}}/api/bookings
+Content-Type: application/json
+Accept: application/json
+
+{
+  "resourceId": "{{resourceId}}",
+  "userId": "{{userId}}",
+  "startDateTime": "2026-07-03T09:00:00Z",
+  "endDateTime": "2026-07-03T10:00:00Z"
+}
+
+###
+
+### 4) Get bookings for one resource
+GET {{BookingManagement_Api_HostAddress}}/api/bookings/resource/{{resourceId}}?fromUtc=2026-07-01T00:00:00Z&toUtc=2026-07-31T23:59:59Z&includeCancelled=true&pageNumber=1&pageSize=20
+Accept: application/json
+
+###
+
+### 5) Try overlapping booking - expected result: 409 Conflict
+POST {{BookingManagement_Api_HostAddress}}/api/bookings
+Content-Type: application/json
+Accept: application/json
+
+{
+  "resourceId": "{{resourceId}}",
+  "userId": "{{userId}}",
+  "startDateTime": "2026-07-03T09:30:00Z",
+  "endDateTime": "2026-07-03T10:30:00Z"
+}
+
+###
+
+### 6) Cancel a booking
+# Copy the id returned from request 3 and replace it below.
+POST {{BookingManagement_Api_HostAddress}}/api/bookings/E1742EB8-756B-4D05-9B03-BE57A0B1EB8A/cancel
+Accept: application/json

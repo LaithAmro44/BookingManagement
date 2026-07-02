@@ -1,0 +1,46 @@
+<div class="table-wrapper" *ngIf="bookings.length || isLoading; else empty">
+  <table>
+    <thead>
+      <tr>
+        <th>Start</th>
+        <th>End</th>
+        <th>Booked by</th>
+        <th>Status</th>
+        <th class="action-column">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="isLoading">
+        <td colspan="5" class="loading-cell">Loading bookings…</td>
+      </tr>
+      <tr *ngFor="let booking of bookings">
+        <td>
+          <strong>{{ booking.startDateTimeUtc | date:'medium' }}</strong>
+          <small>UTC: {{ booking.startDateTimeUtc | date:'shortTime':'UTC' }}</small>
+        </td>
+        <td>
+          <strong>{{ booking.endDateTimeUtc | date:'medium' }}</strong>
+          <small>UTC: {{ booking.endDateTimeUtc | date:'shortTime':'UTC' }}</small>
+        </td>
+        <td>
+          <strong>{{ booking.userDisplayName }}</strong>
+          <small>{{ booking.userId }}</small>
+        </td>
+        <td><app-status-badge [status]="booking.status"></app-status-badge></td>
+        <td class="action-column">
+          <button *ngIf="isActive(booking)" type="button" (click)="requestCancel(booking)"
+            [disabled]="cancellingBookingId === booking.id">
+            {{ cancellingBookingId === booking.id ? 'Cancelling…' : 'Cancel' }}
+          </button>
+          <span *ngIf="!isActive(booking)" class="cancelled-text">No action</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #empty>
+  <app-empty-state icon="⌂" title="No bookings found"
+    description="There are no bookings for the selected resource and filters.">
+  </app-empty-state>
+</ng-template>

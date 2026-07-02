@@ -1,0 +1,41 @@
+<app-page-header
+  title="Booking users"
+  description="Reference data returned by GET /api/users. Select one of these users when creating a booking."
+  actionText="Create booking"
+  actionRoute="/bookings/new">
+</app-page-header>
+
+<div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+
+<section class="data-card" *ngIf="!isLoading; else loading">
+  <div class="card-heading">
+    <h3>Users available for bookings</h3>
+    <span>{{ users.length }} total</span>
+  </div>
+
+  <table *ngIf="users.length; else empty">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Identifier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>
+          <span class="avatar">{{ user.displayName.charAt(0) }}</span>
+          <strong>{{ user.displayName }}</strong>
+        </td>
+        <td><code>{{ user.id }}</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #empty>
+    <app-empty-state title="No users found" description="The API returned no booking users."></app-empty-state>
+  </ng-template>
+</section>
+
+<ng-template #loading>
+  <section class="data-card loading-card">Loading users…</section>
+</ng-template>

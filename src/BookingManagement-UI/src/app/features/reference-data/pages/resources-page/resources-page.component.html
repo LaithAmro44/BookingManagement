@@ -1,0 +1,32 @@
+<app-page-header title="Resources"
+  description="Reference data returned by GET /api/resources. These resources can be selected while creating a booking."
+  actionText="Create booking" actionRoute="/bookings/new">
+</app-page-header>
+
+<div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+
+<section class="data-card" *ngIf="!isLoading; else loading">
+  <div class="card-heading">
+    <h3>Available resources</h3>
+    <span>{{ resources.length }} total</span>
+  </div>
+
+  <div class="resource-grid" *ngIf="resources.length; else empty">
+    <article class="resource-item" *ngFor="let resource of resources">
+      <span class="resource-icon">▣</span>
+      <div>
+        <strong>{{ resource.name }}</strong>
+        <small>{{ resource.id }}</small>
+      </div>
+      <a routerLink="/bookings" [queryParams]="{ resourceId: resource.id }">View bookings →</a>
+    </article>
+  </div>
+
+  <ng-template #empty>
+    <app-empty-state title="No resources found" description="The API returned no resources."></app-empty-state>
+  </ng-template>
+</section>
+
+<ng-template #loading>
+  <section class="data-card loading-card">Loading resources…</section>
+</ng-template>

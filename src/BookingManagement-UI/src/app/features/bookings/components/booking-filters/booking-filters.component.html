@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="apply()" class="filters" novalidate>
+  <div class="filter-fields">
+    <label>
+      <span>Resource</span>
+      <select formControlName="resourceId">
+        <option value="">Select a resource</option>
+        <option *ngFor="let resource of resources" [value]="resource.id">{{ resource.name }}</option>
+      </select>
+    </label>
+
+    <label>
+      <span>From</span>
+      <input type="datetime-local" formControlName="fromLocal">
+    </label>
+
+    <label>
+      <span>To</span>
+      <input type="datetime-local" formControlName="toLocal">
+    </label>
+
+    <label class="checkbox-label">
+      <input type="checkbox" formControlName="includeCancelled">
+      <span>Include cancelled</span>
+    </label>
+  </div>
+
+  <div *ngIf="formError" class="filter-error">{{ formError }}</div>
+
+  <div class="filter-actions">
+    <button type="button" class="clear" (click)="clearDates()" [disabled]="isLoading">Clear dates</button>
+    <button type="submit" class="apply" [disabled]="isLoading">
+      {{ isLoading ? 'Loading…' : 'Apply filters' }}
+    </button>
+  </div>
+</form>

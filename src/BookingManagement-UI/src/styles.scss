@@ -1,0 +1,17 @@
+:root {
+  color: #263a59;
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; }
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+}
+
+button, input, select { font-family: inherit; }

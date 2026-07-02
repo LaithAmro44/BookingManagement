@@ -1,0 +1,77 @@
+<app-page-header title="Bookings"
+  description="Browse bookings by resource, filter by date range, and cancel active bookings when needed."
+  actionText="Create booking" actionRoute="/bookings/new">
+</app-page-header>
+
+<div *ngIf="errorMessage" class="alert error" role="alert">
+  {{ errorMessage }}
+</div>
+
+<app-booking-filters *ngIf="!isLoadingResources" [resources]="resources" [selectedResourceId]="search.resourceId"
+  [isLoading]="isLoading" (filtersApplied)="applyFilters($event)">
+</app-booking-filters>
+
+<section *ngIf="!isLoadingResources; else resourceLoading" class="results-card">
+
+  <div class="results-header">
+    <div>
+      <h3>Booking results</h3>
+
+      <p>
+        {{ page.totalCount }}
+        booking{{ page.totalCount === 1 ? '' : 's' }}
+        found
+      </p>
+    </div>
+
+    <a routerLink="/bookings/new">
+      + Create booking
+    </a>
+  </div>
+
+  <app-booking-table [bookings]="bookings" [isLoading]="isLoading" [cancellingBookingId]="cancellingBookingId"
+    (cancelRequested)="openCancelDialog($event)">
+  </app-booking-table>
+
+  <app-pagination [pageNumber]="page.pageNumber" [pageSize]="page.pageSize" [totalCount]="page.totalCount"
+    (pageChanged)="changePage($event)">
+  </app-pagination>
+</section>
+
+<ng-template #resourceLoading>
+  <section class="results-card loading-card">
+    Loading resources…
+  </section>
+</ng-template>
+
+<app-confirmation-dialog *ngIf="bookingToCancel as booking" title="Cancel this booking?"
+  confirmText="Yes, cancel booking" cancelText="Keep booking" [destructive]="true"
+  [loading]="cancellingBookingId === booking.id" [errorMessage]="cancellationErrorMessage"
+  (confirm)="confirmCancellation()" (cancel)="closeCancelDialog()">
+
+  <p class="cancel-dialog-text">
+    This booking will be marked as cancelled, and its time slot will become available again.
+  </p>
+
+  <div class="cancel-booking-summary">
+    <div>
+      <span>Resource</span>
+      <strong>{{ booking.resourceName }}</strong>
+    </div>
+
+    <div>
+      <span>User</span>
+      <strong>{{ booking.userDisplayName }}</strong>
+    </div>
+
+    <div>
+      <span>Start</span>
+      <strong>{{ booking.startDateTimeUtc | date:'medium' }}</strong>
+    </div>
+
+    <div>
+      <span>End</span>
+      <strong>{{ booking.endDateTimeUtc | date:'medium' }}</strong>
+    </div>
+  </div>
+</app-confirmation-dialog>

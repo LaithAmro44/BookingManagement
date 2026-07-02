@@ -1,0 +1,86 @@
+.alert {
+  margin-bottom: 18px;
+  padding: 12px 14px;
+  border: 1px solid #f1c8ca;
+  border-radius: 8px;
+  background: #fff2f2;
+  color: #a33d43;
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.results-card {
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid #e7edf6;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 22px rgba(37, 61, 107, .04);
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 18px;
+  border-bottom: 1px solid #edf0f5;
+}
+
+h3,
+p {
+  margin: 0;
+}
+
+h3 {
+  color: #243754;
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 5px;
+  color: #79869b;
+  font-size: .78rem;
+}
+
+.results-header a {
+  color: #315feb;
+  font-size: .82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.loading-card {
+  padding: 35px;
+  color: #738198;
+}
+
+.cancel-dialog-text {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.cancel-booking-summary {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.cancel-booking-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cancel-booking-summary span {
+  color: #64748b;
+}
+
+.cancel-booking-summary strong {
+  color: #0f172a;
+  text-align: right;
+}

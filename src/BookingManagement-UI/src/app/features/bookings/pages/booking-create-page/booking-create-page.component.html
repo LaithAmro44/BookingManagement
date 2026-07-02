@@ -1,0 +1,27 @@
+<app-page-header
+  title="Create booking"
+  description="Reserve a resource for a selected user. Active bookings that overlap the same resource are rejected by the API."
+  actionText="View bookings"
+  actionRoute="/bookings">
+</app-page-header>
+
+<div *ngIf="successMessage" class="alert success">{{ successMessage }} Redirecting to bookings…</div>
+
+<section class="form-card" *ngIf="!isLoadingReferenceData; else loading">
+  <div class="card-title">
+    <h3>Booking details</h3>
+    <p>All fields marked with <span>*</span> are required.</p>
+  </div>
+
+  <app-booking-form
+    [resources]="resources"
+    [users]="users"
+    [isSubmitting]="isSubmitting"
+    [errorMessage]="errorMessage"
+    (bookingSubmitted)="createBooking($event)">
+  </app-booking-form>
+</section>
+
+<ng-template #loading>
+  <section class="form-card loading-card">Loading resources and users…</section>
+</ng-template>

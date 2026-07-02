@@ -1,0 +1,42 @@
+.empty-state {
+  padding: 46px 24px;
+  text-align: center;
+  color: #68758b;
+}
+
+.empty-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 13px;
+  border-radius: 14px;
+  background: #edf2ff;
+  color: #456ee7;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+h3,
+p {
+  margin: 0;
+}
+
+h3 {
+  color: #253552;
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+a {
+  display: inline-block;
+  margin-top: 16px;
+  color: #315feb;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+}

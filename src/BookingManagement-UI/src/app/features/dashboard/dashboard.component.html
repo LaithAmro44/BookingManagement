@@ -1,0 +1,52 @@
+<app-page-header
+  title="Dashboard"
+  description="A simple overview of the booking system. Use the navigation to create and manage bookings."
+  actionText="Create booking"
+  actionRoute="/bookings/new">
+</app-page-header>
+
+<div *ngIf="errorMessage" class="alert error">
+  <strong>API connection problem.</strong> {{ errorMessage }}
+</div>
+
+<section class="summary-grid" [class.loading]="isLoading">
+  <article class="summary-card">
+    <span class="summary-icon resource">▣</span>
+    <div>
+      <p>Available resources</p>
+      <strong>{{ isLoading ? '–' : resourceCount }}</strong>
+      <small>Seeded rooms and equipment</small>
+    </div>
+  </article>
+
+  <article class="summary-card">
+    <span class="summary-icon users">◉</span>
+    <div>
+      <p>Booking users</p>
+      <strong>{{ isLoading ? '–' : userCount }}</strong>
+      <small>Users who can create bookings</small>
+    </div>
+  </article>
+
+  <article class="summary-card action-card">
+    <span class="summary-icon booking">+</span>
+    <div>
+      <p>Ready to schedule?</p>
+      <strong>New booking</strong>
+      <a routerLink="/bookings/new">Open booking form →</a>
+    </div>
+  </article>
+</section>
+
+<section class="guide-card">
+  <div class="guide-content">
+    <p class="section-label">HOW TO USE IT</p>
+    <h3>Booking workflow</h3>
+    <p>Create a booking, then view it in the Bookings page. The API rejects overlapping active bookings for the same resource.</p>
+  </div>
+  <ol>
+    <li><span>1</span> Choose a resource and a user.</li>
+    <li><span>2</span> Enter a start and end date/time.</li>
+    <li><span>3</span> Create, filter, or cancel bookings.</li>
+  </ol>
+</section>

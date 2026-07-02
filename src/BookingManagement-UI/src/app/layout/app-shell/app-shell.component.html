@@ -1,0 +1,35 @@
+<div class="app-shell" [class.sidebar-open]="isSidebarOpen">
+  <aside class="sidebar" aria-label="Main navigation">
+    <a class="brand" routerLink="/dashboard" (click)="closeSidebar()">
+      <span class="brand-mark">BM</span>
+      <span>
+        <strong>Booking</strong>
+        <small>Management</small>
+      </span>
+    </a>
+
+    <nav class="navigation">
+      <a *ngFor="let item of navigationItems" [routerLink]="item.route" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.exact ?? false }" (click)="closeSidebar()">
+        <span class="nav-icon" aria-hidden="true">{{ item.icon }}</span>
+        {{ item.label }}
+      </a>
+    </nav>
+  </aside>
+
+  <div class="content-area">
+    <header class="topbar">
+      <button class="menu-button" type="button" (click)="toggleSidebar()" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <div>
+        <p class="eyebrow">RESOURCE SCHEDULING</p>
+        <h1>Booking Management</h1>
+      </div>
+    </header>
+
+    <main class="main-content" (click)="closeSidebar()">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

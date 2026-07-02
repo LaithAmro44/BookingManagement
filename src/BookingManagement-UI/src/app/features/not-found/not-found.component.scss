@@ -1,0 +1,14 @@
+.not-found {
+  max-width: 520px;
+  margin: 70px auto;
+  padding: 42px 30px;
+  border: 1px solid #e7edf6;
+  border-radius: 14px;
+  background: #fff;
+  text-align: center;
+}
+
+.not-found > span { color: #5279e8; font-size: 3.2rem; font-weight: 800; }
+h2 { margin: 8px 0 0; color: #203351; }
+p { margin: 10px 0 0; color: #718098; line-height: 1.6; }
+a { display: inline-block; margin-top: 20px; padding: 10px 14px; border-radius: 8px; background: #315feb; color: #fff; font-size: .86rem; font-weight: 700; text-decoration: none; }
